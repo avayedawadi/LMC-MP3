@@ -6,6 +6,10 @@ interface Props {
 }
 
 const { currentPath } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+// Remove base from currentPath for comparison
+const normalizedPath = currentPath.replace(base, '') || '/';
 ---
 
 <aside
@@ -18,9 +22,9 @@ const { currentPath } = Astro.props;
         navigation.map((item) => (
           <li>
             <a
-              href={item.path}
+              href={base + item.path}
               class={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                currentPath === item.path
+                normalizedPath === item.path
                   ? 'bg-primary-100 text-primary-700'
                   : 'text-gray-700 hover:bg-gray-100'
               }`}
@@ -32,9 +36,9 @@ const { currentPath } = Astro.props;
                 {item.children.map((child) => (
                   <li>
                     <a
-                      href={child.path}
+                      href={base + child.path}
                       class={`block px-3 py-2 rounded-lg text-sm transition-colors ${
-                        currentPath === child.path
+                        normalizedPath === child.path
                           ? 'bg-primary-100 text-primary-700'
                           : 'text-gray-600 hover:bg-gray-100'
                       }`}

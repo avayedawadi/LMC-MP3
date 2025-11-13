@@ -1,6 +1,13 @@
 ---
 import { searchIndex } from '../lib/searchIndex';
+
+const base = import.meta.env.BASE_URL;
 ---
+
+<script is:inline define:vars={{ searchIndex, base }}>
+  window.__SEARCH_INDEX__ = searchIndex;
+  window.__BASE_URL__ = base;
+</script>
 
 <div class="relative" id="search-container">
   <input
@@ -16,10 +23,13 @@ import { searchIndex } from '../lib/searchIndex';
   </div>
 </div>
 
-<script define:vars={{ searchIndex }} is:inline>
+<script is:inline>
   const searchInput = document.getElementById('search-input');
   const searchResults = document.getElementById('search-results');
   const searchContainer = document.getElementById('search-container');
+
+  const searchIndex = window.__SEARCH_INDEX__;
+  const base = window.__BASE_URL__;
 
   function filterPages(query) {
     const lowerQuery = query.toLowerCase().trim();
@@ -43,15 +53,11 @@ import { searchIndex } from '../lib/searchIndex';
 
     searchResults.innerHTML = results
       .map(
-        (page) => `
-        <a
-          href="${page.slug}"
-          class="block px-4 py-3 hover:bg-gray-100 border-b border-gray-200 last:border-b-0"
-        >
-          <div class="font-semibold text-gray-900">${page.title}</div>
-          <div class="text-sm text-gray-600">${page.description}</div>
-        </a>
-      `
+        (page) =>
+        '<a href="' + base + page.slug + '" class="block px-4 py-3 hover:bg-gray-100 border-b border-gray-200 last:border-b-0">' +
+          '<div class="font-semibold text-gray-900">' + page.title + '</div>' +
+          '<div class="text-sm text-gray-600">' + page.description + '</div>' +
+        '</a>'
       )
       .join('');
     searchResults.classList.remove('hidden');

@@ -9,6 +9,13 @@ export interface ContentData {
   content: string;
 }
 
+export function fixInternalLinks(html: string, baseUrl: string): string {
+  // Replace internal links (starting with / or ./) with base URL prepended
+  return html
+    .replace(/href="\/([^"]*?)"/g, `href="${baseUrl}/$1"`)
+    .replace(/href="\.\/([^"]*?)"/g, `href="${baseUrl}/$1"`);
+}
+
 const contentDirectory = path.join(process.cwd(), 'content');
 
 export function getContentBySlug(slug: string): ContentData | null {

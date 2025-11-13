@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getContentBySlug } from '../lib/content';
+import { getContentBySlug, fixInternalLinks } from '../lib/content';
 import { marked } from 'marked';
 
 const contentData = getContentBySlug('/');
@@ -9,7 +9,9 @@ if (!contentData) {
   return Astro.redirect('/404');
 }
 
-const htmlContent = marked(contentData.content);
+const base = import.meta.env.BASE_URL;
+const rawHtml = await marked(contentData.content);
+const htmlContent = fixInternalLinks(rawHtml, base);
 ---
 
 <Layout title={contentData.title} description={contentData.description}>
