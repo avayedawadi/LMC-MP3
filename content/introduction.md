@@ -6,16 +6,18 @@ keywords: ["intro", "overview", "toolkit"]
 
 # Introduction
 
-Welcome to the **Bits of Good Technical Communication Toolkit**.
+Welcome to the **Bits of Good Technical Communication Toolkit Onboarding Guide**.
 
-This site teaches **Developers, PMs, Designers, and EMs** how we write,
-communicate, and document our work when building software for nonprofits.
+This site teaches **Developers, PMs (Product Managers), Designers, and EMs (Engineering Managers)** how to properly write documentation, communicate with non-profits, write tickets, etc. This is to help us effectively communicate as an organization in a clear and concise manner.
 
-Our goals:
+With our technical communication, we have a couple goals:
 
-- Help new members onboard quickly
-- Improve clarity across roles
-- Ensure knowledge persists beyond any single semester
-- Communicate clearly with nontechnical nonprofit partners
+- All communication should be easy to understand for the group being communicated to
+    - If talking to non-profits, technical jargon should be kept to basically 0
+    - If talking to developers, make sure to explain project context
+    - etc.
+- Ensuring that documentation allows knowledge to persist for students in the future
+- All non-technical stakeholders must be able to understand projects
+    - This is at the core of our goals
 
 If you're new, start with [Getting Started](/getting-started).

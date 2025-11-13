@@ -8,7 +8,7 @@ keywords: ["nonprofits", "communication", "stakeholders"]
 
 Most nonprofits we work with are **not** technical.
 
-Our job: explain what we're doing in language they can understand.
+Our job is to explain what we're doing without getting too into the weeds
 
 ## Rules
 
@@ -20,17 +20,11 @@ Use plain language whenever possible.
 
 Nonprofits care about outcomes.
 
-- ❌ "We added client-side validation for malformed payloads."
-- ✅ "We added checks so users can't submit broken forms anymore."
+- BAD = "We added client-side validation for malformed payloads."
+- GOOD = "We added checks so users can't submit broken forms anymore."
 
-### 3. Send Regular Updates
+### 3. Confirm Assumptions
 
-Each update should include:
-- What we completed
-- What we're doing next
-- Any blockers
-- Questions where we need their input
-
-### 4. Confirm Assumptions
-
-Repeat requirements back in your own words to check understanding.
+- Repeat requirements back in your own words to check understanding.
+- Also, sometimes the non-profits ARE well versed
+    - Have a conversation first to understand where they stand, and adjust your communication accordingly

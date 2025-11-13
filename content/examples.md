@@ -10,13 +10,13 @@ Seeing examples is the fastest way to understand expectations.
 
 ## Pull Request Description
 
-### ❌ Bad Example
+### Bad Example
 
 ```text
 fixed the bug
 ```
 
-### ✅ Good Example
+### Good Example
 
 ```text
 ## What changed?
@@ -34,11 +34,11 @@ Users were submitting incomplete forms, causing confusing errors on the backend.
 
 ## Spec Writing
 
-### ❌ Bad Example
+### Bad Example
 
 The user creates an event and it works.
 
-### ✅ Good Example
+### Good Example
 
 ```markdown
 ## Summary

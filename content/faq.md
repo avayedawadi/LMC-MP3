@@ -6,19 +6,17 @@ keywords: ["faq", "mistakes", "troubleshooting"]
 
 # FAQ & Common Mistakes
 
-## FAQ
-
 ### Do I have to document everything?
 
-No. You need to document **anything that would be hard for someone else to figure out** if you disappeared.
+No. Just document what is important to keep this project progressing in future semesters
 
 ### What if I don't fully understand the feature yet?
 
-Document what you know, and add an "Open Questions" section.
+Ask leadership!
 
 ### What if the nonprofit doesn't reply?
 
-Reach out to your EM/PM. There should be a clear escalation path.
+Reach out to your EM/PM.
 
 ---
 

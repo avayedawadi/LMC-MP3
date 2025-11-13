@@ -12,5 +12,3 @@ This section contains reusable templates for:
 - Feature specs
 - Project READMEs
 - Nonprofit communication emails
-
-Use the sidebar to select a specific template.

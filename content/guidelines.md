@@ -10,11 +10,11 @@ These rules make our documentation clear and easy to use.
 
 ## Core Principles
 
-1. **Simple > complex**
-2. **Short sentences > long paragraphs**
-3. **Examples > abstract explanations**
-4. **Screenshots > walls of text**
-5. **Assume the reader is new to the project**
+1. **It is better to be simple over complex**
+2. **Keep sentences and paragraphs short**
+3. **Use examples where possible to describe features**
+4. **Screenshots are the best way to convey information**
+5. **Keep pure jargon to a minimum**
 
 ## Style Rules
 
