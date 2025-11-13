@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getContentBySlug } from '../lib/content';
+import { marked } from 'marked';
+
+const contentData = getContentBySlug('/');
+
+if (!contentData) {
+  return Astro.redirect('/404');
+}
+
+const htmlContent = marked(contentData.content);
+---
+
+<Layout title={contentData.title} description={contentData.description}>
+  <Fragment set:html={htmlContent} />
+</Layout>

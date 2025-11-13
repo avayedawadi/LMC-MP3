@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getContentBySlug, getAllContentSlugs } from '../lib/content';
+import { marked } from 'marked';
+
+export async function getStaticPaths() {
+  const slugs = getAllContentSlugs();
+
+  return slugs
+    .filter((slug) => !slug.includes('/introduction'))
+    .map((slug) => {
+      const cleanSlug = slug.replace(/^\//, '');
+      return {
+        params: { slug: cleanSlug },
+      };
+    });
+}
+
+const { slug } = Astro.params;
+const contentData = getContentBySlug(`/${slug}`);
+
+if (!contentData) {
+  return Astro.redirect('/404');
+}
+
+const htmlContent = marked(contentData.content);
+---
+
+<Layout title={contentData.title} description={contentData.description}>
+  <Fragment set:html={htmlContent} />
+</Layout>

@@ -1,0 +1,85 @@
+---
+import { searchIndex } from '../lib/searchIndex';
+---
+
+<div class="relative" id="search-container">
+  <input
+    type="text"
+    id="search-input"
+    placeholder="Search..."
+    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+  />
+  <div
+    id="search-results"
+    class="hidden absolute top-full left-0 right-0 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg max-h-96 overflow-y-auto z-50"
+  >
+  </div>
+</div>
+
+<script define:vars={{ searchIndex }} is:inline>
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+  const searchContainer = document.getElementById('search-container');
+
+  function filterPages(query) {
+    const lowerQuery = query.toLowerCase().trim();
+    if (!lowerQuery) return [];
+
+    return searchIndex.filter((page) => {
+      return (
+        page.title.toLowerCase().includes(lowerQuery) ||
+        page.description.toLowerCase().includes(lowerQuery) ||
+        page.keywords.some((keyword) => keyword.toLowerCase().includes(lowerQuery))
+      );
+    });
+  }
+
+  function renderResults(results) {
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="px-4 py-3 text-gray-500">No results found</div>';
+      searchResults.classList.remove('hidden');
+      return;
+    }
+
+    searchResults.innerHTML = results
+      .map(
+        (page) => `
+        <a
+          href="${page.slug}"
+          class="block px-4 py-3 hover:bg-gray-100 border-b border-gray-200 last:border-b-0"
+        >
+          <div class="font-semibold text-gray-900">${page.title}</div>
+          <div class="text-sm text-gray-600">${page.description}</div>
+        </a>
+      `
+      )
+      .join('');
+    searchResults.classList.remove('hidden');
+  }
+
+  searchInput.addEventListener('input', (e) => {
+    const query = e.target.value;
+    if (!query.trim()) {
+      searchResults.classList.add('hidden');
+      return;
+    }
+
+    const results = filterPages(query);
+    renderResults(results);
+  });
+
+  // Close search results when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!searchContainer.contains(e.target)) {
+      searchResults.classList.add('hidden');
+    }
+  });
+
+  // Handle keyboard navigation
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      searchResults.classList.add('hidden');
+      searchInput.blur();
+    }
+  });
+</script>

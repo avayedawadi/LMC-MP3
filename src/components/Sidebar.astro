@@ -1,0 +1,73 @@
+---
+import { navigation } from '../lib/nav';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+---
+
+<aside
+  id="sidebar"
+  class="fixed top-16 left-0 h-[calc(100vh-4rem)] w-64 bg-white border-r border-gray-200 overflow-y-auto transition-transform duration-300 ease-in-out lg:translate-x-0 -translate-x-full z-40"
+>
+  <nav class="p-4">
+    <ul class="space-y-1">
+      {
+        navigation.map((item) => (
+          <li>
+            <a
+              href={item.path}
+              class={`block px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                currentPath === item.path
+                  ? 'bg-primary-100 text-primary-700'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+            >
+              {item.title}
+            </a>
+            {item.children && (
+              <ul class="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-3">
+                {item.children.map((child) => (
+                  <li>
+                    <a
+                      href={child.path}
+                      class={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                        currentPath === child.path
+                          ? 'bg-primary-100 text-primary-700'
+                          : 'text-gray-600 hover:bg-gray-100'
+                      }`}
+                    >
+                      {child.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</aside>
+
+<!-- Mobile overlay -->
+<div
+  id="sidebar-overlay"
+  class="fixed inset-0 bg-black bg-opacity-50 z-30 lg:hidden hidden"
+></div>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const menuButton = document.getElementById('mobile-menu-button');
+
+  function toggleSidebar() {
+    sidebar?.classList.toggle('-translate-x-full');
+    overlay?.classList.toggle('hidden');
+  }
+
+  menuButton?.addEventListener('click', toggleSidebar);
+  overlay?.addEventListener('click', toggleSidebar);
+</script>

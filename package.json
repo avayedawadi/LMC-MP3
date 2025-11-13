@@ -1,0 +1,23 @@
+{
+  "name": "bits-of-good-toolkit",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.15.6",
+    "gray-matter": "^4.0.3",
+    "marked": "^15.0.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.4",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}
