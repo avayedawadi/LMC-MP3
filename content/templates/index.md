@@ -12,3 +12,4 @@ This section contains reusable templates for:
 - Feature specs
 - Project READMEs
 - Nonprofit communication emails
+- [Nonprofit Outreach Template](./nonprofit-outreach.md)

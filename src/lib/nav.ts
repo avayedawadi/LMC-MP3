@@ -41,6 +41,10 @@ export const navigation: NavItem[] = [
         title: 'Nonprofit Email Template',
         path: '/templates/email-template',
       },
+      {
+        title: 'Nonprofit Outreach Template',
+        path: '/templates/nonprofit-outreach',
+      },
     ],
   },
   {

@@ -28,3 +28,15 @@ Nonprofits care about outcomes.
 - Repeat requirements back in your own words to check understanding.
 - Also, sometimes the non-profits ARE well versed
     - Have a conversation first to understand where they stand, and adjust your communication accordingly
+
+### 4. Maintain a Professional & Respectful Tone
+
+- Be polite and patient at all times, no matter the issue
+- The nonprofits have the same goal as us, and we are working together to achieve it
+- NEVER give blame or use accusatory language, talk through issues maturely
+
+### 5. Treat Nonprofits Like Clients
+
+- Understand what exactly they need
+- Be honest with them about what is and isn't possible
+- At the end of the day, we are delivering value for them. Make sure to listen to them and give them space to voice their concerns.
